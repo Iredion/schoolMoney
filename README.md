@@ -37,28 +37,28 @@ Aplikacja oferuje ponadto **czat klasowy i prywatny** w czasie rzeczywistym (Web
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    WARSTWA DOSTĘPU                       │
+│                    WARSTWA DOSTĘPU                      │
 │  React SPA (React Router v7 + TailwindCSS v4)           │
 │  → proxy /api/* i /ws/* → backend:8080                  │
 └───────────────────────┬─────────────────────────────────┘
                         │ HTTP/REST + WebSocket (STOMP)
 ┌───────────────────────▼─────────────────────────────────┐
-│                WARSTWA BIZNESOWA                         │
+│                WARSTWA BIZNESOWA                        │
 │  Spring Boot 3.5 (Java 21)                              │
 │  ├── AuthController   (JWT, rejestracja/logowanie)      │
 │  ├── UserController   (profil, lista użytkowników)      │
 │  ├── ChildController  (zarządzanie dziećmi)             │
-│  ├── SchoolClassController (klasy, tokeny zaproszeń)   │
+│  ├── SchoolClassController (klasy, tokeny zaproszeń)    │
 │  ├── FundraiserController  (zbiórki)                    │
-│  ├── TransactionController (wpłaty, wypłaty, zwroty)   │
+│  ├── TransactionController (wpłaty, wypłaty, zwroty)    │
 │  ├── ChatController   (WebSocket – STOMP)               │
 │  ├── AdminController  (panel admina)                    │
-│  └── FileUploadController (upload plików)              │
+│  └── FileUploadController (upload plików)               │
 └───────────────────────┬─────────────────────────────────┘
                         │
 ┌───────────────────────▼─────────────────────────────────┐
-│                WARSTWA DANYCH                            │
-│  MongoDB 7.0                                             │
+│                WARSTWA DANYCH                           │
+│  MongoDB 7.0                                            │
 │  Kolekcje: users, classes, children,                    │
 │            fundraisers, transactions, messages          │
 └─────────────────────────────────────────────────────────┘
