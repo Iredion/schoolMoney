@@ -61,36 +61,36 @@ Projekt realizuje architekturę **Monolith Modular** – jednolita aplikacja bac
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │  KLIENT (przeglądarka)                                       │
-│  React SPA – React Router v7 + TailwindCSS v4 + Vite        │
-│  Port: 3000 (Docker) / 5173 (dev)                           │
+│  React SPA – React Router v7 + TailwindCSS v4 + Vite         │
+│  Port: 3000 (Docker) / 5173 (dev)                            │
 └───────────────────────┬──────────────────────────────────────┘
                         │ HTTP/REST  │  WebSocket (STOMP/SockJS)
 ┌───────────────────────▼──────────────────────────────────────┐
-│  BACKEND (Spring Boot 3.5 / Java 21)                        │
+│  BACKEND (Spring Boot 3.5 / Java 21)                         │
 │  Port: 8080                                                  │
 │                                                              │
-│  ┌──────────────┐ ┌──────────────┐ ┌───────────────────┐   │
-│  │ REST API     │ │ WebSocket    │ │ Static Files      │   │
-│  │ /api/**      │ │ /ws/**       │ │ /api/uploads/**   │   │
-│  └──────┬───────┘ └──────┬───────┘ └───────────────────┘   │
+│  ┌──────────────┐ ┌──────────────┐ ┌───────────────────┐     │
+│  │ REST API     │ │ WebSocket    │ │ Static Files      │     │
+│  │ /api/**      │ │ /ws/**       │ │ /api/uploads/**   │     │
+│  └──────┬───────┘ └──────┬───────┘ └───────────────────┘     │
 │         │                │                                   │
-│  ┌──────▼────────────────▼───────────────────────────────┐  │
-│  │  Warstwa Serwisów (Logika biznesowa)                  │  │
+│  ┌──────▼────────────────▼───────────────────────────────┐   │
+│  │  Warstwa Serwisów (Logika biznesowa)                  │   │
 │  │  AuthService | FundraiserService | TransactionService  │  │
 │  │  ChildService | SchoolClassService | MessageService    │  │
-│  └──────────────────────┬────────────────────────────────┘  │
+│  └──────────────────────┬────────────────────────────────┘   │
 │                         │                                    │
-│  ┌──────────────────────▼────────────────────────────────┐  │
-│  │  Warstwa Repozytoriów (Spring Data MongoDB)           │  │
-│  └──────────────────────┬────────────────────────────────┘  │
+│  ┌──────────────────────▼────────────────────────────────┐   │
+│  │  Warstwa Repozytoriów (Spring Data MongoDB)           │   │
+│  └──────────────────────┬────────────────────────────────┘   │
 └─────────────────────────┼────────────────────────────────────┘
                           │
 ┌─────────────────────────▼────────────────────────────────────┐
 │  BAZA DANYCH (MongoDB 7.0)                                   │
 │  Port: 27017                                                 │
 │  Baza: schoolmoney_db                                        │
-│  Kolekcje: users, classes, children,                        │
-│            fundraisers, transactions, messages              │
+│  Kolekcje: users, classes, children,                         │
+│            fundraisers, transactions, messages               │
 └──────────────────────────────────────────────────────────────┘
 ```
 

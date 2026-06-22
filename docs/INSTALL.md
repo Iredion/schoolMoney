@@ -13,7 +13,7 @@
 
 ```bash
 # 1. Sklonuj repozytorium
-git clone <adres-repozytorium> SchoolMoney
+git clone https://github.com/Iredion/schoolMoney.git SchoolMoney
 cd SchoolMoney
 
 # 2. Zbuduj i uruchom wszystkie kontenery (pierwsza instalacja może trwać kilka minut)
